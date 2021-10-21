@@ -16,27 +16,18 @@
         <table id="table">
             <tr>
                 <th>N1</th>
-                <th>Segno</th>
-                <th>N2</th>
-                <th>Risultato</th>
             </tr>
         </table>
         
-        <p>Numero 1 : <input oninput="insertMethod(this.value)" type="number" name="n1" id="n1" value="0"></p>
+        <p>Numero 1 : <input  type="number" name="n1" id="n1"></p>
         
         <button id="btn1">Add</button>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script>
-            var number
-            function insertMethod(val){
-                number = val;
-            }
-            
             $("#btn1").click(function(){
-                var newCell = $("<td>"+number+"</td>");
-                var newRow = $("<tr></tr>");
-                newRow.html(newCell);
-                $("#table").append(newRow);
+                var n1 = parseInt($("#num1"));
+                var string = "<tr><td>"+n1+"</td></tr>";
+                $("#table").append(string);
             });
         </script>
     </body>
