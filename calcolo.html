@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title>JS_ES 3_Calcolatrice</title>
+        <style>
+            table,
+            td,
+            tr,
+            th {
+                border: 1px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 style="background-color: greenyellow;">Calcolatrice</h1>
+        <h2>Simple calculator </h2>
+        <table id="table">
+            <tr>
+                <th>N1</th>
+                <th>Segno</th>
+                <th>N2</th>
+                <th>Risultato</th>
+                <th>N1</th>
+            </tr>
+        </table>
+        
+        <p>Numero 1 : <input oninput="insertMethod(this.value)" type="number" name="n1" id="n1" value="0"></p>
+        
+        <button id="btn1">Add</button>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            var number
+            function insertMethod(val){
+                number = val;
+            }
+            
+            $("#btn1").click(function(){
+                var newCell = $("<td>"+number+"</td>");
+                var newRow = $("<tr></tr>");
+                newRow.html(newCell);
+                $("#table").append(newRow);
+            });
+        </script>
+    </body>
+</html>
