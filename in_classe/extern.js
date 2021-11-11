@@ -3,7 +3,6 @@ $("#add").click(function(){
     var input2 = $("#n2");
     if(input1 != "" && input2 != ""){
         var n1 = parseInt(input1.val());
-        console.log();
         var n2 = parseInt(input2.val());
         var result = n1+n2;
         var string = "<tr><td>"+n1+"</td><td>+</td><td>"+n2+"</td><td>"+result+"</td></tr>";
@@ -16,8 +15,6 @@ $("#add").click(function(){
 $("#substract").click(function(){
     var input1 = $("#n1");
     var input2 = $("#n2");
-    console.log("input1", input1.val());
-    console.log("input2", input2.val());
     if(input1 != "" && input2 != ""){
         var n1 = parseInt(input1.val());
         var n2 = parseInt(input2.val());

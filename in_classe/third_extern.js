@@ -1,7 +1,9 @@
-$("#add").click(function(){calculate("+");});
-$("#substract").click(function(){calculate("+");});
-$("#multiply").click(function(){calculate("+");});
-$("#divide").click(function(){calculate("+");});
+$("#add").click(() => {calculate("+");});
+$("#substract").click(() => {calculate("-");});
+$("#multiply").click(() => {calculate("*");});
+$("#divide").click(() => {calculate("/");});
+var l = localStorage
+var n = "0";
 
 var calculate = function(segno){
     var input1 = $("#n1");
@@ -17,16 +19,28 @@ var calculate = function(segno){
             case "-":
                 result = n1 - n2;
                 break;
-            case "-":
+            case "*":
                 result = n1 * n2;
                 break;
             default:
                 result = n1 / n2;
                 break;
         }
-        string = "<tr><td>"+n1+"</td><td>"+segno+"</td><td>"+n2+"</td><td>"+result+"</td></tr>";
+        string = "<tr><td>"+n1+"</td><td>"+segno+"</td><td>"+n2+"</td><td>"+result+"</td><td><button id=''>ELIMINA</td></tr>";
         $("#table").append(string);
+        l.setItem(n, string);
+        n = "0"-("-1");
+        console.log("localStorage", l.length);
     }
     input1.val("");
     input2.val("");
 }
+
+var localStart = function(){
+    var i = "0";
+    while(l.getItem(i+('-1')) != null){
+        $("#table").append(l.getItem(i));
+        i++;
+    }
+}
+localStart();
