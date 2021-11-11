@@ -12,9 +12,12 @@ $("#add").click(function(){
     input1.val("");
     input2.val("");
 });
+
 $("#substract").click(function(){
     var input1 = $("#n1");
     var input2 = $("#n2");
+    console.log("input1", input1.val());
+    console.log("input2", input2.val());
     if(input1 != "" && input2 != ""){
         var n1 = parseInt(input1.val());
         var n2 = parseInt(input2.val());
@@ -25,6 +28,7 @@ $("#substract").click(function(){
     input1.val("");
     input2.val("");
 });
+
 $("#multiply").click(function(){
     var input1 = $("#n1");
     var input2 = $("#n2");
@@ -38,6 +42,7 @@ $("#multiply").click(function(){
     input1.val("");
     input2.val("");
 });
+
 $("#divide").click(function(){
     var input1 = $("#n1");
     var input2 = $("#n2");
