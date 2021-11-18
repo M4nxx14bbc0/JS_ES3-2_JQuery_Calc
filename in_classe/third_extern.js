@@ -4,7 +4,6 @@ $("#multiply").click(() => {calculate("*");});
 $("#divide").click(() => {calculate("/");});
 var l = window.localStorage;
 $("#table").append(l.getItem("tabella"));
-console.log(l.length);
 var n = "0";
 
 var calculate = function(segno){
