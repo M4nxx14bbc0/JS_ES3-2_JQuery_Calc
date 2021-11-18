@@ -3,7 +3,8 @@ $("#substract").click(() => {calculate("-");});
 $("#multiply").click(() => {calculate("*");});
 $("#divide").click(() => {calculate("/");});
 var l = window.localStorage;
-$("#table").append(l.getItem("tabella"));
+var tableArray = [];
+$("#table").append(JSON.parse(l.getItem("tabella")));
 var n = "0";
 
 var calculate = function(segno){
@@ -28,9 +29,11 @@ var calculate = function(segno){
                 break;
         }
         string = "<tr><td>"+n1+"</td><td>"+segno+"</td><td>"+n2+"</td><td>"+result+"</td><td><button id=''>ELIMINA</td></tr>";
-        var table = l.getItem("tabella");
+        tableArray.push(string);
+        var table = JSON.parse(l.getItem("tabella"));
         l.clear();
-        l.setItem("tabella", table+string);
+        var jsonArr = {"arr":tableArray};
+        l.setItem("tabella", JSON.stringify(jsonArr));
         $("#table").append(string);
         console.log("localStorage", l.length);
     }
