@@ -2,7 +2,9 @@ $("#add").click(() => {calculate("+");});
 $("#substract").click(() => {calculate("-");});
 $("#multiply").click(() => {calculate("*");});
 $("#divide").click(() => {calculate("/");});
-var l = localStorage
+var l = window.localStorage;
+$("#table").append(l.getItem("tabella"));
+console.log(l.length);
 var n = "0";
 
 var calculate = function(segno){
@@ -27,9 +29,10 @@ var calculate = function(segno){
                 break;
         }
         string = "<tr><td>"+n1+"</td><td>"+segno+"</td><td>"+n2+"</td><td>"+result+"</td><td><button id=''>ELIMINA</td></tr>";
+        var table = l.getItem("tabella");
+        l.clear();
+        l.setItem("tabella", table+string);
         $("#table").append(string);
-        l.setItem(n, string);
-        n = "0"-("-1");
         console.log("localStorage", l.length);
     }
     input1.val("");
